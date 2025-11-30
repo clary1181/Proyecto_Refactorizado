@@ -18,7 +18,9 @@ Code Smells
 
 
 
+
 Patrones Aplicados
+
 Patrón Singleton (Inventario)
 Se aplico este patrón a la clase Inventario para asegurar que solo exista una única instancia de inventario en toda la aplicación.
 Implementación: Se hizo el constructor de Inventario privado y proporcionamos un método estático público ( getInstance()) para que cualquier otra parte del sistema pueda acceder a esa única instancia compartida de productos.

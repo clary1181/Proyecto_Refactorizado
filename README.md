@@ -1,13 +1,21 @@
 Proyecto de Refactorización
 
 Code Smells
+
 •	Instanciación múltiples: La clase Inventario podría ser instanciada varias veces si se declara como un miembro en varias clases o si se usa el constructor libremente. Se pueden usar métodos especiales como setUp() para preparar datos o estados comunes antes de cada prueba.
+
 •	Alto Acoplamiento: Las clases de cliente (como main o comandos) tenían que interactuar con muchos subsistemas (Inventario, Ventas, Clientes) y conocer sus métodos internos y el ciclo de vida de los datos.
+
 •	Violación del OCP (Lógica de Instanciación): Si la clase SistemaTienda creara directamente los informes, necesitaría modificar su código cada vez que se agregara un nuevo tipo de informe.
+
 •	Métodos Ligeramente Largos (Lógica de Menú): Las funciones menuGerente y menuEmpleado contienen grandes bloques de switch/case con toda la lógica de cada acción, haciendo difícil la adición de nuevas opciones.
+
 •	Código Duplicado (Formato de Tabla): Las funciones de Inventario(mostrarProductos, buscarProductoPorBusqueda, buscarPorDescripcion) repetían la misma lógica para mostrar el encabezado de la tabla de productos.
+
 •	Código duplicado (lógica de cálculo): En la clase ReporteAnual, la lógica de cálculo y filtrado de datos por mes se duplicaba entre el método generar() y escribirContenidoArchivo().
+
 •	Método Largo (ReporteMensual::generar()): El método generar() en que ReporteMensual contiene la lógica de filtrar, calcular el resumen estadístico y mostrar el top de productos.
+
 
 
 Patrones Aplicados
@@ -44,6 +52,7 @@ Justificación: Al centralizar el formato de la tabla en una sola función, se e
 Problema Corregido: Las funciones ReporteAnual::generar() y ReporteAnual::escribirContenidoArchivo()duplicaban la lógica de negocio (cálculos de totales y filtros por mes).
 Refactorización: Se creó el método que retorna una estructura ReporteAnual::calcularDatosAnuales() DatosAnuales.
 Justificación: Se centralizó la lógica de negocio en una única función. Ahora se obtienen todos los datos calculados una sola vez , haciendo que las demás funciones ya no necesiten recalcular (evitando el bucle duplicado) y haciendo el código más limpio y eficiente..
+
 
 
 

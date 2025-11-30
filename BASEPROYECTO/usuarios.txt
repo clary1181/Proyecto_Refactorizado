@@ -1,0 +1,3 @@
+clarita 1234a Empleado
+pepe abcde GERENTE
+pedro 123 Empleado

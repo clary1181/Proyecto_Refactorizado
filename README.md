@@ -1,4 +1,4 @@
-#Proyecto de Refacyorización
+Proyecto de Refactorización
 
 Code Smells
 •	Instanciación múltiples: La clase Inventario podría ser instanciada varias veces si se declara como un miembro en varias clases o si se usa el constructor libremente. Se pueden usar métodos especiales como setUp() para preparar datos o estados comunes antes de cada prueba.
